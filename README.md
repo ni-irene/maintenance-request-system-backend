@@ -48,6 +48,11 @@ The API will start on **http://localhost:8080**.
 
 ---
 
+## Part B - Derived Queries
+- GET /api/requesters/by-lastname?lastName=Igiraneza
+- GET /api/maintenance-requests/by-status?status=SUBMITTED
+- GET /api/maintenance-requests/between?start=2026-10-01&end=2026-10-31
+
 ## API Endpoints Summary
 
 ### Trades – `/api/trades`
