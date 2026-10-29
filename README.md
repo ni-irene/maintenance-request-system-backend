@@ -53,6 +53,18 @@ The API will start on **http://localhost:8080**.
 - GET /api/maintenance-requests/by-status?status=SUBMITTED
 - GET /api/maintenance-requests/between?start=2026-10-01&end=2026-10-31
 
+## Part C - JPQL Queries
+- GET /api/technicians/by-trade?name=plumb
+- GET /api/buildings/free
+- GET /api/trades/unused
+- GET /api/requesters/of-technician/{technicianId}
+
+## Part D - Business Rules
+- POST /api/maintenance-requests/save (date validation and technician conflict check)
+- PATCH /api/maintenance-requests/{id}/status?status=ASSIGNED
+- PUT /api/technicians/{technicianId}/trades/{tradeId}
+- PATCH /api/technicians/{technicianId}/building?buildingNumber=4
+
 ## API Endpoints Summary
 
 ### Trades – `/api/trades`
