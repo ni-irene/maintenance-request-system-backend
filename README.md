@@ -71,8 +71,8 @@ The API will start on **http://localhost:8080**.
 - DELETE /api/repair-records/delete/{id}
 
 ## Part F - Reports and Bulk Updates
-- GET /api/maintenance-requests/stats/by-status
-- PATCH /api/maintenance-requests/cancel-day?technicianId=...&date=...
+- GET /api/maintenance-requests/stats/by-status (returns count per status)
+- PATCH /api/maintenance-requests/cancel-day?technicianId=...&date=... (sets all requests of a technician on that date to REJECTED except RESOLVED)
 
 ## Bonus
 - GET /api/dashboard/summary
