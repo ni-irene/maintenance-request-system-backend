@@ -75,8 +75,8 @@ The API will start on **http://localhost:8080**.
 - PATCH /api/maintenance-requests/cancel-day?technicianId=...&date=... (sets all requests of a technician on that date to REJECTED except RESOLVED)
 
 ## Bonus
-- GET /api/dashboard/summary
-- GET /api/maintenance-requests/page?page=0&size=5&sort=requestDate,desc
+- GET /api/dashboard/summary (returns counts for requesters, technicians, free buildings, requests today, submitted and repair records)
+- GET /api/maintenance-requests/page?page=0&size=5&sort=requestDate,desc (returns paginated maintenance requests)
 
 ## API Endpoints Summary
 
