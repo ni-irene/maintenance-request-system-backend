@@ -65,6 +65,19 @@ The API will start on **http://localhost:8080**.
 - PUT /api/technicians/{technicianId}/trades/{tradeId}
 - PATCH /api/technicians/{technicianId}/building?buildingNumber=4
 
+## Part E - Repair Records
+- POST /api/repair-records/save?maintenanceRequestId=...
+- GET /api/repair-records/requester/{staffNumber}
+- DELETE /api/repair-records/delete/{id}
+
+## Part F - Reports and Bulk Updates
+- GET /api/maintenance-requests/stats/by-status
+- PATCH /api/maintenance-requests/cancel-day?technicianId=...&date=...
+
+## Bonus
+- GET /api/dashboard/summary
+- GET /api/maintenance-requests/page?page=0&size=5&sort=requestDate,desc
+
 ## API Endpoints Summary
 
 ### Trades – `/api/trades`
