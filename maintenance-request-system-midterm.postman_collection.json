@@ -1,0 +1,1382 @@
+{
+  "info": {
+    "name": "Maintenance Request System - Midterm",
+    "description": "Igiraneza Irene - 27328 - INSY 8322. One request per requirement, named by ID. Fill the collection variables with real UUIDs from the GET /all endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "tradeId",
+      "value": "0999301b-faa1-4d08-ba99-04f488e77004",
+      "description": "Plumbing"
+    },
+    {
+      "key": "freeTradeId",
+      "value": "7c2ee497-cbb8-4a89-889b-51037a1b8103",
+      "description": "Air Conditioning (nobody holds it)"
+    },
+    {
+      "key": "buildingId",
+      "value": "cc58d696-d57c-47fa-bc92-82a2b7d851ca",
+      "description": "Building 1"
+    },
+    {
+      "key": "technicianId",
+      "value": "906d41da-576e-432c-8390-ebc5836c4740",
+      "description": "Jean Mutoni"
+    },
+    {
+      "key": "requesterId",
+      "value": "1c5dc847-628b-4323-b7b7-e71e39d6813f",
+      "description": "EMP-0345 Igiraneza"
+    },
+    {
+      "key": "maintenanceRequestId",
+      "value": "11f5648e-5fe1-402f-ae2e-bee7719cbf41",
+      "description": "SUBMITTED request"
+    },
+    {
+      "key": "resolvedRequestId",
+      "value": "f07d5925-87e2-4699-b019-42d40c37e4d8",
+      "description": "RESOLVED request"
+    },
+    {
+      "key": "repairRecordId",
+      "value": "7ed414c4-008c-433f-aba7-8f2e2a75b4d2",
+      "description": "Water tap"
+    },
+    {
+      "key": "staffNumber",
+      "value": "EMP-0345"
+    },
+    {
+      "key": "tradeToDeleteId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "buildingToDeleteId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "technicianToDeleteId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "requesterToDeleteId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "maintenanceRequestToDeleteId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "repairRecordToDeleteId",
+      "value": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "item": [
+    {
+      "name": "A2",
+      "item": [
+        {
+          "name": "A2 trades - save",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/trades/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "trades",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Plumbing\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 trades - all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/trades/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "trades",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 trades - get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/trades/{{tradeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "trades",
+                "{{tradeId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 trades - update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/trades/update/{{tradeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "trades",
+                "update",
+                "{{tradeId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Plumbing (updated)\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 trades - delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/trades/delete/{{tradeToDeleteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "trades",
+                "delete",
+                "{{tradeToDeleteId}}"
+              ]
+            },
+            "description": "Paste the id of a throwaway row you created with the save request. Default id returns 404."
+          }
+        },
+        {
+          "name": "A2 buildings - save",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/buildings/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "buildings",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"buildingNumber\": 1,\n  \"name\": \"Main Block\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 buildings - all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/buildings/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "buildings",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 buildings - get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/buildings/{{buildingId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "buildings",
+                "{{buildingId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 buildings - update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/buildings/update/{{buildingId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "buildings",
+                "update",
+                "{{buildingId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"buildingNumber\": 1,\n  \"name\": \"Main Block (updated)\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 buildings - delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/buildings/delete/{{buildingToDeleteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "buildings",
+                "delete",
+                "{{buildingToDeleteId}}"
+              ]
+            },
+            "description": "Paste the id of a throwaway row you created with the save request. Default id returns 404."
+          }
+        },
+        {
+          "name": "A2 technicians - save",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Mugisha\",\n  \"phone\": \"0788000001\",\n  \"building\": {\n    \"id\": \"{{buildingId}}\"\n  },\n  \"trades\": [\n    {\n      \"id\": \"{{tradeId}}\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 technicians - all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 technicians - get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/{{technicianId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "{{technicianId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 technicians - update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/update/{{technicianId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "update",
+                "{{technicianId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Mugisha\",\n  \"phone\": \"0788000002\",\n  \"building\": {\n    \"id\": \"{{buildingId}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 technicians - delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/delete/{{technicianToDeleteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "delete",
+                "{{technicianToDeleteId}}"
+              ]
+            },
+            "description": "Paste the id of a throwaway row you created with the save request. Default id returns 404."
+          }
+        },
+        {
+          "name": "A2 requesters - save",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/requesters/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "requesters",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Igiraneza\",\n  \"staffNumber\": \"EMP-0345\",\n  \"email\": \"aline@example.com\",\n  \"phone\": \"0788111111\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 requesters - all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/requesters/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "requesters",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 requesters - get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/requesters/{{requesterId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "requesters",
+                "{{requesterId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 requesters - update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/requesters/update/{{requesterId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "requesters",
+                "update",
+                "{{requesterId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Aline\",\n  \"lastName\": \"Igiraneza\",\n  \"staffNumber\": \"EMP-0345\",\n  \"email\": \"aline.new@example.com\",\n  \"phone\": \"0788111111\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 requesters - delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/requesters/delete/{{requesterToDeleteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "requesters",
+                "delete",
+                "{{requesterToDeleteId}}"
+              ]
+            },
+            "description": "Paste the id of a throwaway row you created with the save request. Default id returns 404."
+          }
+        },
+        {
+          "name": "A2 maintenance-requests - save",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/maintenance-requests/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "maintenance-requests",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestDate\": \"2026-12-01\",\n  \"status\": \"SUBMITTED\",\n  \"location\": \"Block A, Room 12\",\n  \"priority\": \"HIGH\",\n  \"requester\": {\n    \"id\": \"{{requesterId}}\"\n  },\n  \"technician\": {\n    \"id\": \"{{technicianId}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 maintenance-requests - all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/maintenance-requests/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "maintenance-requests",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 maintenance-requests - get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/maintenance-requests/{{maintenanceRequestId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "maintenance-requests",
+                "{{maintenanceRequestId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 maintenance-requests - update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/maintenance-requests/update/{{maintenanceRequestId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "maintenance-requests",
+                "update",
+                "{{maintenanceRequestId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestDate\": \"2026-12-02\",\n  \"location\": \"Block A, Room 12\",\n  \"priority\": \"LOW\",\n  \"requester\": {\n    \"id\": \"{{requesterId}}\"\n  },\n  \"technician\": {\n    \"id\": \"{{technicianId}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "A2 maintenance-requests - delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/maintenance-requests/delete/{{maintenanceRequestToDeleteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "maintenance-requests",
+                "delete",
+                "{{maintenanceRequestToDeleteId}}"
+              ]
+            },
+            "description": "Paste the id of a throwaway row you created with the save request. Default id returns 404."
+          }
+        },
+        {
+          "name": "A2 error 404 - unknown id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/maintenance-requests/00000000-0000-0000-0000-000000000000",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "maintenance-requests",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "B1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/requesters/by-lastname?lastName=igiraneza",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "requesters",
+            "by-lastname"
+          ],
+          "query": [
+            {
+              "key": "lastName",
+              "value": "igiraneza"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "B2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/by-status?status=SUBMITTED",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "by-status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "SUBMITTED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "B3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/between?start=2026-10-01&end=2026-10-31",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "between"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-10-01"
+            },
+            {
+              "key": "end",
+              "value": "2026-10-31"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "C1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/technicians/by-trade?name=plumb",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "technicians",
+            "by-trade"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "plumb"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "C2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/buildings/free",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "buildings",
+            "free"
+          ]
+        }
+      }
+    },
+    {
+      "name": "C3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/trades/unused",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "trades",
+            "unused"
+          ]
+        }
+      }
+    },
+    {
+      "name": "C4",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/requesters/of-technician/{{technicianId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "requesters",
+            "of-technician",
+            "{{technicianId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "C4 error 404",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/requesters/of-technician/00000000-0000-0000-0000-000000000000",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "requesters",
+            "of-technician",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      }
+    },
+    {
+      "name": "D1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/save",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "save"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestDate\": \"2026-11-20\",\n  \"status\": \"RESOLVED\",\n  \"location\": \"Block B, Lab 2\",\n  \"priority\": \"MEDIUM\",\n  \"requester\": {\n    \"id\": \"{{requesterId}}\"\n  },\n  \"technician\": {\n    \"id\": \"{{technicianId}}\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Status in body is ignored: the saved request always starts SUBMITTED."
+      }
+    },
+    {
+      "name": "D1 error 400 past date",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/save",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "save"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestDate\": \"2026-10-01\",\n  \"location\": \"Block B\",\n  \"priority\": \"LOW\",\n  \"requester\": {\n    \"id\": \"{{requesterId}}\"\n  },\n  \"technician\": {\n    \"id\": \"{{technicianId}}\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "D1 error 409 technician busy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/save",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "save"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestDate\": \"2026-11-05\",\n  \"location\": \"Block C\",\n  \"priority\": \"LOW\",\n  \"requester\": {\n    \"id\": \"{{requesterId}}\"\n  },\n  \"technician\": {\n    \"id\": \"{{technicianId}}\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Jean Mutoni already has a SUBMITTED request on 2026-11-05, so this is rejected with 409."
+      }
+    },
+    {
+      "name": "D2",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/{{maintenanceRequestId}}/status?status=ASSIGNED",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "{{maintenanceRequestId}}",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "ASSIGNED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "D2 error 400 invalid move",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/{{resolvedRequestId}}/status?status=SUBMITTED",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "{{resolvedRequestId}}",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "SUBMITTED"
+            }
+          ]
+        },
+        "description": "Use a RESOLVED or REJECTED request id."
+      }
+    },
+    {
+      "name": "D2 error 404",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/00000000-0000-0000-0000-000000000000/status?status=ASSIGNED",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "00000000-0000-0000-0000-000000000000",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "ASSIGNED"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "D3",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/technicians/{{technicianId}}/trades/{{freeTradeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "technicians",
+            "{{technicianId}}",
+            "trades",
+            "{{freeTradeId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "D3 error 409 already has trade",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/technicians/{{technicianId}}/trades/{{freeTradeId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "technicians",
+            "{{technicianId}}",
+            "trades",
+            "{{freeTradeId}}"
+          ]
+        },
+        "description": "Run D3 twice: second call returns 409."
+      }
+    },
+    {
+      "name": "D4",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/technicians/{{technicianId}}/building?buildingNumber=4",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "technicians",
+            "{{technicianId}}",
+            "building"
+          ],
+          "query": [
+            {
+              "key": "buildingNumber",
+              "value": "4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "D4 error 404 no such building",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/technicians/{{technicianId}}/building?buildingNumber=99",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "technicians",
+            "{{technicianId}}",
+            "building"
+          ],
+          "query": [
+            {
+              "key": "buildingNumber",
+              "value": "99"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "E1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/repair-records/save?maintenanceRequestId={{resolvedRequestId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "repair-records",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "maintenanceRequestId",
+              "value": "{{resolvedRequestId}}"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"partReplaced\": \"Water tap\",\n  \"workDone\": \"Replaced the leaking tap in the kitchen\",\n  \"hoursSpent\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "E1 error 400 not resolved",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/repair-records/save?maintenanceRequestId={{maintenanceRequestId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "repair-records",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "maintenanceRequestId",
+              "value": "{{maintenanceRequestId}}"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"partReplaced\": \"Water tap\",\n  \"workDone\": \"Replaced the leaking tap in the kitchen\",\n  \"hoursSpent\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Use a request that is not RESOLVED."
+      }
+    },
+    {
+      "name": "E2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/repair-records/requester/{{staffNumber}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "repair-records",
+            "requester",
+            "{{staffNumber}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "E3",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/repair-records/delete/{{repairRecordToDeleteId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "repair-records",
+            "delete",
+            "{{repairRecordToDeleteId}}"
+          ]
+        },
+        "description": "Create a record with E1, copy its id here, then delete it. Default id returns 404."
+      }
+    },
+    {
+      "name": "E3 error 409 request has repair records",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/delete/{{resolvedRequestId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "delete",
+            "{{resolvedRequestId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "F1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/stats/by-status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "stats",
+            "by-status"
+          ]
+        }
+      }
+    },
+    {
+      "name": "F2",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/cancel-day?technicianId={{technicianId}}&date=2026-10-20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "technicianId",
+              "value": "{{technicianId}}"
+            },
+            {
+              "key": "date",
+              "value": "2026-10-20"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bonus 1 - dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/dashboard/summary",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Bonus 2 - page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/maintenance-requests/page?page=0&size=5&sort=requestDate,desc",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "maintenance-requests",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            },
+            {
+              "key": "sort",
+              "value": "requestDate,desc"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
